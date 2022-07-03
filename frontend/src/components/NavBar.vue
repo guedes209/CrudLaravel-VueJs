@@ -6,10 +6,10 @@ export default defineComponent({
     setup(props) {
         return {
             routes: [{
-                name: 'Home',
+                name: 'Crud de Produtos',
                 link: '/'
             },{
-                name: 'Contato',
+                name: 'Crud de Compras',
                 link: '/contact'
             },{
                 name: 'Sobre-nos',
