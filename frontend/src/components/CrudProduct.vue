@@ -1,10 +1,14 @@
 <script>
 import { defineComponent, ref, reactive } from 'vue'
 import axios from 'axios'
+import Button from '@/components/Button.vue'
 
 const link = 'http://127.0.0.1:8000/api';
 
 export default defineComponent({
+    components: {
+        Button
+    },
     setup(props) {
         var data = ref([]);
 
@@ -15,8 +19,13 @@ export default defineComponent({
             });
         }
 
+        function addProduct(){
+            console.log("aqui");
+        }
+
         return {
             getProducts,
+            addProduct,
             data
         }
     },
@@ -29,6 +38,7 @@ export default defineComponent({
 
 <template>
     <div>
+        <Button placeholder="Adicionar" @click="addProduct"></Button>
         <table class="table table-striped">
             <thead>
                 <tr>
