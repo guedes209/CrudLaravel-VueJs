@@ -3,6 +3,6 @@
 
 <template>
   <div>
-    <h1>This is an Home page</h1>
+    <h1>This is an Contact page</h1>
   </div>
 </template>
