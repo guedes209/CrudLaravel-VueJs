@@ -1,47 +1,40 @@
 <script>
-import { RouterLink, RouterView } from 'vue-router'
-import { defineComponent } from 'vue'
+import { ref } from 'vue';
 
-export default defineComponent({
-    setup(props) {
+export default {
+    data() {
         return {
-            routes: [{
-                name: 'Crud de Produtos',
-                link: '/'
-            },{
-                name: 'Crud de Compras',
-                link: '/contact'
-            },{
-                name: 'Sobre-nos',
-                link: '/about'
-            }]
+            dense: true
         }
     }
-})
+}
 
 </script>
 
-
 <template>
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
-        <RouterLink class="navbar-brand ml-2" to="/">Crud Laravel + VueJs</RouterLink>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li v-for="item in routes" class="nav-item">
-                    <RouterLink class="nav-link" :to="`${item.link}`">{{ item.name }}</RouterLink>
-                </li>
-            </ul>
+    <div>
+        <ui-top-app-bar
+        content-selector="#content-main"
+        :dense=dense
+        :navIcon="false"
+        class="app-bar"
+        >
+        <span class="top-bar">Gerenciamento de Consultas</span>
+        </ui-top-app-bar>
+        
+        <div id="content-main">
+            <RouterView/>
         </div>
-    </nav>
-    <RouterView />
+    </div>
 </template>
 
-
-<style scoped>
-.ml-2{
-    margin-left:10px;
+<style>
+.app-bar{
+    background-color: white!important;
+    color: #666666!important;
+}
+.top-bar{
+    font-size: 30px; 
+    font-weight: 500;
 }
 </style>
