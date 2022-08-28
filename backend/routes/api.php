@@ -16,3 +16,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::post('/login', [UserController::class, 'login']);
+
+Route::post('/create-user', [UserController::class, 'createUser']);
+
+Route::get('/logged', [UserController::class, 'logged']);

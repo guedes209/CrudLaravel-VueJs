@@ -6,8 +6,8 @@ export const headers = {
 export const URL_API = import.meta.env.VITE_URL_API;
 
 export function requestGet(url) {
-    return new Promise((resolve, reject) => {
-        fetch(URL_API+url, {
+    return new Promise(async (resolve, reject) => {
+        await fetch(URL_API+url, {
             method: 'GET', 
             headers: headers
         })
@@ -26,8 +26,8 @@ export function requestGet(url) {
     
 }
 export function requestPost(url, data) {
-    return new Promise((resolve, reject) => {
-        fetch(URL_API+url, {
+    return new Promise(async (resolve, reject) => {
+        await fetch(URL_API+url, {
             method: 'POST', 
             body: JSON.stringify({...data}),
             headers: headers

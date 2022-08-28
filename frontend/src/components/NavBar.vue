@@ -1,10 +1,31 @@
 <script>
 import { ref } from 'vue';
+import { requestGet } from '../api/index';
+
+var logged = ref();
+async function isLogged(){
+    var response = await requestGet('/logged')
+    if(response.success){
+        logged.value = response.logged;
+    } else {
+        logged.value = false;
+    }
+}
 
 export default {
     data() {
         return {
-            dense: true
+            dense: true,
+            isLogged,
+            logged
+        }
+    },
+    watch: {
+        $router: {
+            deep: true,
+            handler(){
+                this.isLogged();
+            }
         }
     }
 }
@@ -19,7 +40,10 @@ export default {
         :navIcon="false"
         class="app-bar"
         >
-        <span class="top-bar">Gerenciamento de Consultas</span>
+        <div v-if="logged" style="display:flex; justify-content: start;">
+            <div class="top-bar">GC</div>
+            <div>algo novo</div>
+        </div>
         </ui-top-app-bar>
         
         <div id="content-main">
